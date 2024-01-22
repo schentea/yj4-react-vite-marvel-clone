@@ -2,13 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainPage from "./routes/MainPage.jsx";
+import NotFound from "./routes/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainPage />,
+    element: <Outlet />,
+    errorElement: <NotFound />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
