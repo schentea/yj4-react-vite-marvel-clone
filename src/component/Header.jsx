@@ -1,6 +1,6 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import LogoLarge from "../assets/png/Logo_Large.png";
+import LogoLarge from "../assets/png/Logo_large.png";
 
 export default function Header() {
   return (
