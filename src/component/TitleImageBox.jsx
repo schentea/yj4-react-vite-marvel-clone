@@ -1,35 +1,45 @@
-import React from "react";
-import TitleRotate from "../component/TitleRotate";
-import Button from "../component/Button";
-export default function TitleImageBox({ imgUrl }) {
+import Button from "./Button";
+import TitleRotate from "./TitleRotate";
+
+export default function TitleImageBox({
+  imgUrl,
+  mainTitle,
+  subTitle,
+  description,
+  btnTxt,
+}) {
   return (
     <section className="w-full">
       {/* 이미지로 된 타이틀 */}
       <div
-        className="relative w-full h-[500px] flex bg-main-dark justify-end"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 90%, 0% 100%)" }}
+        style={{
+          clipPath: "polygon(0 0, 100% 0, 100% 90%, 0 100%)",
+        }}
+        className="relative w-full h-[500px] flex justify-end bg-main-dark"
       >
-        {/* 오른쪽 배경이미지 */}
+        {/* 오른쪽에 배경이미지 */}
         <div
-          style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 16% 100%)" }}
-          className="w-[55%] h-full "
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 14% 100%)",
+          }}
+          className="w-[55%] h-full"
         >
           <img
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
             src={imgUrl}
             alt="comics_title_img"
           />
         </div>
-        {/* 절대 포지션 부모요소 전체 선택 */}
-        <div className="absolute top-0 lef-0 w-full h-full flex justify-center">
+        {/* 절대포지션 부모요소 전체 선택 */}
+        <div className="absolute top-0 left-0 w-full h-full flex justify-center">
           <div className="max-w-7xl w-full h-full flex flex-col justify-center text-white space-y-4">
             <div className="space-y-2">
-              <TitleRotate text="AVAILABLE NOW" />
-              <h1 className="text-4xl font-bold">NEW ON MAVEL UNLIMITED</h1>
-              <p>Read these plus 30,000+ digital comics for $9.99 a month!</p>
+              {/* 사선으로 된 제목 */}
+              <TitleRotate text={mainTitle} />
+              <h1 className="text-4xl font-bold uppercase">{subTitle}</h1>
+              <p>{description}</p>
             </div>
-
-            <Button outline="outline" text="get involved unlimited" />
+            <Button outline="outline" text={btnTxt} />
           </div>
         </div>
       </div>

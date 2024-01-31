@@ -85,7 +85,7 @@ export default function MainPage() {
                   </svg>
                   COMICS
                 </div>
-                {lists.slice(2, 7).map((item, index) => (
+                {lists?.slice(2, 7).map((item, index) => (
                   <div
                     className={`w-full flex flex-row space-x-10 border-b-2 pb-10 pt-10 ${
                       index === 4 ? "border-b-0" : "border-b-2"
