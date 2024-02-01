@@ -27,7 +27,13 @@ export default function MainPage() {
         {/* 메인 캐러셀 */}
         <MainSlide />
         {/* 코믹스 섹션 */}
-        <TitleImageBox imgUrl="https://cdn.britannica.com/62/182362-050-BD31B42D/Scarlett-Johansson-Black-Widow-Chris-Hemsworth-Thor.jpg" />
+        <TitleImageBox
+          imgUrl="https://cdn.britannica.com/62/182362-050-BD31B42D/Scarlett-Johansson-Black-Widow-Chris-Hemsworth-Thor.jpg"
+          mainTitle="available now"
+          subTitle="new on Marvel unlimited"
+          description="Read these plus 30,000+ digital comics for $9.99 a month!"
+          btnTxt="get marvel unlimited"
+        />
         {/* 리스트 캐러셀 */}
         <ListCarousel lists={lists} />
         {/*  */}
@@ -46,7 +52,7 @@ export default function MainPage() {
                       className="w-full flex flex-row space-x-10 border-b-2 pb-10 pt-10"
                     >
                       <img
-                        className="w-[40%]"
+                        className=" aspect-w-4 aspect-h-3 w-[40%] h-[200px]object-cover"
                         src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
                         alt=""
                       />
@@ -87,7 +93,7 @@ export default function MainPage() {
                 </div>
                 {lists?.slice(2, 7).map((item, index) => (
                   <div
-                    className={`w-full flex flex-row space-x-10 border-b-2 pb-10 pt-10 ${
+                    className={`flex flex-row space-x-10 border-b-2 pb-10 pt-10 ${
                       index === 4 ? "border-b-0" : "border-b-2"
                     }`}
                     key={index}

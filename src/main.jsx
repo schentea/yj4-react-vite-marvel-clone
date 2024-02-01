@@ -6,6 +6,8 @@ import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainPage from "./routes/MainPage.jsx";
 import NotFound from "./routes/NotFound.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Characters from "./routes/Characters.jsx";
+import Comics from "./routes/Comics.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <MainPage />,
+      },
+      {
+        path: "characters",
+        element: <Characters />,
+      },
+      {
+        path: "comics",
+        element: <Comics />,
       },
     ],
   },
