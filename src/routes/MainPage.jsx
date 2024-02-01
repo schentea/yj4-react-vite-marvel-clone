@@ -49,10 +49,10 @@ export default function MainPage() {
                   events.map((item, index) => (
                     <div
                       key={index}
-                      className="w-full flex flex-row space-x-10 border-b-2 pb-10 pt-10"
+                      className="w-full flex flex-row space-x-10 border-b-2 pb-10 pt-10 items-center  "
                     >
                       <img
-                        className=" aspect-w-4 aspect-h-3 w-[40%] h-[200px]object-cover"
+                        className="w-[40%] h-[200px] object-cover"
                         src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
                         alt=""
                       />
