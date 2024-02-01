@@ -34,3 +34,31 @@ export async function apiGetCharacters({ queryKey }) {
     console.log(error);
   }
 }
+
+// params : id
+//[GET] Characters Detail
+export async function apiGetCharactersDetail({ queryKey }) {
+  const id = queryKey[1].id;
+  try {
+    return await fetch(`${BASE_URL}/characters/${id}?apikey=${API_KEY}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// export async function apiGetComics({ queryKey }) {
+//   const id = queryKey[1].id;
+//   try {
+//     return await fetch(`${BASE_URL}/comics/${id}?apikey=${API_KEY}`, {
+//       method: "GET",
+//       headers: { "Content-Type": "application/json" },
+//     }).then((res) => res.json());
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }

@@ -8,6 +8,8 @@ import NotFound from "./routes/NotFound.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Characters from "./routes/Characters.jsx";
 import Comics from "./routes/Comics.jsx";
+import CharactersDetail from "./routes/CharactersDetail.jsx";
+import ComicsDetail from "./routes/ComicsDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,8 +26,16 @@ const router = createBrowserRouter([
         element: <Characters />,
       },
       {
+        path: "characters/:id",
+        element: <CharactersDetail />,
+      },
+      {
         path: "comics",
         element: <Comics />,
+      },
+      {
+        path: "comics/:id",
+        element: <ComicsDetail />,
       },
     ],
   },

@@ -35,16 +35,18 @@ export default function Header() {
           </div>
           {/* 중 : 로고*/}
           <div className=" absolute h-full top-0 left-[50%] -translate-x-[50%]">
-            <img className="h-full" src={LogoLarge} alt="" />
+            <Link to="/">
+              <img className="h-full" src={LogoLarge} alt="" />
+            </Link>
           </div>
         </div>
       </section>
       <section className="w-full flex justify-center text-white uppercase space-x-8 text-sm items-center h-10 bg-main-dark border-t border-gray-700">
         <p>news</p>
-        <Link to="comics">
+        <Link to="/comics">
           <p>comics</p>
         </Link>
-        <Link to="characters">
+        <Link to="/characters">
           <p>characters</p>
         </Link>
         <p>moview</p>
