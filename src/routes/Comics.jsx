@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../component/Layout";
 import { useQuery } from "react-query";
 import { apiGetComics } from "../Api";
-import TitleRotate from "../component/TitleRotate";
+import { Link } from "react-router-dom";
 
 export default function Comics() {
   let comics;
@@ -11,7 +11,7 @@ export default function Comics() {
   if (!isLoading) {
     comics = data?.data.results.slice(0, 7);
   }
-  console.log(comics);
+
   return (
     <Layout>
       <div className="relative w-full h-[400px] flex justify-center">
@@ -35,13 +35,15 @@ export default function Comics() {
       <div className="w-full flex justify-center mt-10">
         <div className="max-w-7xl w-full h-80 flex flex-col">
           <div className="w-full h-[80%] flex justify-center items-center space-x-16">
-            {comics?.map((item, index) => (
-              <div key={index} className="flex w-[10%] h-[90%] ">
-                <img
-                  className="w-full h-full object-cover"
-                  src={`${item?.thumbnail?.path}.${item?.thumbnail?.extension}`}
-                  alt=""
-                />
+            {comics?.map((item, index, array) => (
+              <div key={index} className="flex w-full h-full">
+                <Link to={`/comics/${item.id}`} state={{ comics: array }}>
+                  <img
+                    className="w-full h-full  object-cover"
+                    src={`${item?.thumbnail?.path}.${item?.thumbnail?.extension}`}
+                    alt=""
+                  />
+                </Link>
               </div>
             ))}
           </div>

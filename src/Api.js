@@ -51,7 +51,9 @@ export async function apiGetCharactersDetail({ queryKey }) {
   }
 }
 
-// export async function apiGetComics({ queryKey }) {
+//params : id
+//[Get] Comics Detail
+// export async function apiGetComicsDetail({ queryKey }) {
 //   const id = queryKey[1].id;
 //   try {
 //     return await fetch(`${BASE_URL}/comics/${id}?apikey=${API_KEY}`, {
