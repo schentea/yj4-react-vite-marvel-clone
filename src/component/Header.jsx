@@ -1,9 +1,59 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import LogoLarge from "../assets/png/Logo_large.png";
-import { Link } from "react-router-dom";
+import NavLink from "./NavLink";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import ComicsComponent from "./menus/ComicsComponent";
+import CharactersComponent from "./menus/CharactersComponent";
+
+const MENUS = [
+  {
+    text: "news",
+    href: "#",
+    component: "",
+  },
+  {
+    text: "comics",
+    href: "/comics",
+    component: ComicsComponent,
+  },
+  {
+    text: "characters",
+    href: "/characters",
+    component: CharactersComponent,
+  },
+  {
+    text: "movies",
+    href: "/movies",
+    component: "",
+  },
+  {
+    text: "Tv show",
+    href: "/tv",
+    component: "",
+  },
+  {
+    text: "games",
+    href: "/games",
+    component: "",
+  },
+  {
+    text: "videos",
+    href: "/videos",
+    component: "",
+  },
+  {
+    text: "more",
+    href: "/more",
+    component: "",
+  },
+];
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuContent, setMenuContent] = useState();
+  console.log(menuOpen);
   return (
     <>
       {/* 헤더 */}
@@ -35,26 +85,42 @@ export default function Header() {
           </div>
           {/* 중 : 로고*/}
           <div className=" absolute h-full top-0 left-[50%] -translate-x-[50%]">
-            <Link to="/">
-              <img className="h-full" src={LogoLarge} alt="" />
-            </Link>
+            <img className="h-full" src={LogoLarge} alt="" />
           </div>
         </div>
       </section>
-      <section className="w-full flex justify-center text-white uppercase space-x-8 text-sm items-center h-10 bg-main-dark border-t border-gray-700">
-        <p>news</p>
-        <Link to="/comics">
-          <p>comics</p>
-        </Link>
-        <Link to="/characters">
-          <p>characters</p>
-        </Link>
-        <p>moview</p>
-        <p>tv shows</p>
-        <p>games</p>
-        <p>video</p>
-        <p>more</p>
-      </section>
+      <div className="relative">
+        <section className="w-full border border-gray-700 flex justify-center h-10 bg-main-dark text-white uppercase space-x-8 text-sm items-center">
+          {MENUS.map((item, index) => (
+            <NavLink
+              menuOpen={menuOpen}
+              setMenuOpen={setMenuOpen}
+              key={index}
+              href={item.href}
+              component={item.component}
+              setMenuContent={setMenuContent}
+            >
+              {item.text}
+            </NavLink>
+          ))}
+        </section>
+        {menuOpen && menuContent && (
+          <AnimatePresence>
+            <motion.div
+              onMouseEnter={() => setMenuOpen(true)}
+              onMouseLeave={() => setMenuOpen(false)}
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -5 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="z-50 absolute top-10 left-0 w-full shadow-lg bg-white"
+            >
+              <div className="absolute -top-2 left-0 right-0 h-10 bg-transparent" />
+              {menuContent}
+            </motion.div>
+          </AnimatePresence>
+        )}
+      </div>
     </>
   );
 }
