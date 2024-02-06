@@ -37,8 +37,8 @@ export default function MainPage() {
         {/* 리스트 캐러셀 */}
         <ListCarousel lists={lists} />
         {/*  */}
-        <section className="w-full flex justify-center">
-          <div className="max-w-7xl w-full grid grid-cols-[7fr_3fr] space-x-10">
+        <section className="w-full flex justify-center px-4">
+          <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-[7fr_3fr] space-x-10">
             {/* 1번 왼쪽 */}
             <div className="w-full h-full">
               {/* 타이틀 */}
@@ -49,7 +49,7 @@ export default function MainPage() {
                   events.map((item, index) => (
                     <div
                       key={index}
-                      className="w-full flex flex-row space-x-10 border-b-2 pb-10 pt-10 items-center  "
+                      className="w-full md:h-64 flex flex-row space-x-10 border-b-2 pb-10 pt-10 items-center  "
                     >
                       <img
                         className="w-[40%] h-[200px] object-cover"

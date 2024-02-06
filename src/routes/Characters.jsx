@@ -40,7 +40,7 @@ export default function Characters() {
         <div className="max-w-7xl w-full">
           {/* 제목 */}
           <TitleRotate text="featured characters" />
-          <div className="grid grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:gird-cols-4 lg:grid-cols-6 gap-4 ">
             {characters?.map((item, index) => (
               <div key={index} className="h-[340px] group cursor-pointer">
                 <Link to={`/characters/${item.id}`}>

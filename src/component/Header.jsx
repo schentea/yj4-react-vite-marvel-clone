@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ComicsComponent from "./menus/ComicsComponent";
 import CharactersComponent from "./menus/CharactersComponent";
+import MobileMenu from "./MobileMenu";
 
 const MENUS = [
   {
@@ -53,22 +54,25 @@ const MENUS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuContent, setMenuContent] = useState();
-  console.log(menuOpen);
+
   return (
     <>
       {/* 헤더 */}
       <section className="w-full h-12 flex justify-center bg-main-dark">
         <div className="relative max-w-7xl w-full h-full flex justify-between items-center text-white">
           {/* 왼 : 회원정보*/}
-          <div className="flex h-full items-center text-sm space-x-2 border-l border-r border-gray-700 px-4">
+          <div className="hidden md:flex h-full items-center text-sm space-x-2 border-l border-r border-gray-700 px-4">
             <span className=" inline-block bg-white w-5 h-5 text-main-dark text-right italic pr-0.5 rounded-full">
               IN
             </span>
             <span>최</span>
           </div>
+
+          {/* 모바일 */}
+          <MobileMenu />
           {/* 오 : 검색 */}
-          <div className="px-4 h-full flex border-r border-l border-gray-700 items-center">
-            <div className="flex h-full items-center space-x-2 ">
+          <div className="px-4 h-full flex border-0 md:border-r md:border-l border-gray-700 items-center">
+            <div className="hidden md:flex h-full items-center space-x-2 ">
               <img
                 className="h-[60%]  "
                 src="https://cdn.marvel.com/u/prod/marvel/images/mu/web/2021/icon-mu-shield.png"
