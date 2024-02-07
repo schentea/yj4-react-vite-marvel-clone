@@ -11,11 +11,15 @@ export async function apiGetComics() {
 }
 
 // [GET] Event 리스트
-export async function apiGetEvents() {
-  return await fetch(`${BASE_URL}/events?limit=10&apikey=${API_KEY}`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  }).then((res) => res.json());
+export async function apiGetEvents({ pageParam }) {
+  const offset = pageParam * 10;
+  return await fetch(
+    `${BASE_URL}/events?limit=10&offset=${offset}&apikey=${API_KEY}`,
+    {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    }
+  ).then((res) => res.json());
 }
 
 // [GET] Characters 리스트

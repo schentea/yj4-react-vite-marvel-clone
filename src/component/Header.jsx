@@ -8,7 +8,7 @@ import ComicsComponent from "./menus/ComicsComponent";
 import CharactersComponent from "./menus/CharactersComponent";
 import MobileMenu from "./MobileMenu";
 
-const MENUS = [
+export const MENUS = [
   {
     text: "news",
     href: "#",
@@ -94,7 +94,7 @@ export default function Header() {
         </div>
       </section>
       <div className="relative">
-        <section className="w-full border border-gray-700 flex justify-center h-10 bg-main-dark text-white uppercase space-x-8 text-sm items-center">
+        <section className="w-full border border-gray-700 hidden md:flex justify-center h-10 bg-main-dark text-white uppercase space-x-8 text-sm items-center">
           {MENUS.map((item, index) => (
             <NavLink
               menuOpen={menuOpen}
